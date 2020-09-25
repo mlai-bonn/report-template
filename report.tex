@@ -1,0 +1,76 @@
+% !TeX program = lualatex 
+\documentclass[logo]{mlai-report}
+
+\input{preamble} 
+
+\title{The MLAI Report Template} 
+\author{Philip J. Fry \and Turanga Leela \and Bender Bending Rodriguez}
+\date{\today} 
+
+\course{MA-INF 4209}{Selected Papers from NeurIPS 2019}{}
+\term{Winter 2020/21}
+\supervisor{Prof. Dr. Hubert J. Farnsworth \and Dr. John A. Zoidberg} 
+
+\addbibresource{references.bib} 
+\usepackage{blindtext} 
+
+\begin{document}
+	\maketitle
+	
+	\begin{abstract}
+		\blindtext 
+	\end{abstract}
+	
+	\begin{figure}[tp] 
+		\centering
+		\includegraphics[height=4cm]{example-image-a} 
+		\caption{Schubidu} 
+		\label{fig:example-image} 
+	\end{figure}
+
+	\section{Introduction}
+	
+	\begin{equation}
+	\int_{-\infty}^\infty \mathrm{e}^{-\frac{x^2}{2}} \; \mathrm{d}x 
+	\end{equation}
+	
+	\enquote{Don't panic} \parencite{adams1979} \blindtext
+	
+	\subsection{Related Work} 
+	
+	\section{Preliminaries} 
+
+	\section{Setup} 
+	
+	\subsection{Requirements} 
+	
+	\subsection{Class Options} 
+	
+	\subsection{Language} 
+	
+	\subsection{Title and Author}
+	
+	\subsection{Course, Term, and Supervisor} 
+	
+	\section{Feature Reel} 
+	
+	\subsection{Floating Environments} 
+	
+	\subsection{Algorithms}
+	
+	\subsection{Theorem-like Environments} 
+	
+	\subsection{List Environments} 
+	
+	\subsection{Citations} 
+	
+	\section{Useful Additions} 
+	
+	\section{Concluding Remarks}
+	
+	\printbibliography
+	
+	\appendix
+	
+	\section{Known Issues} 
+\end{document}
