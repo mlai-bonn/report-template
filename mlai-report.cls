@@ -26,12 +26,13 @@
 \DeclareTranslation{English}{supervisors}{Supervisor(s)} 
 \DeclareTranslation{German}{supervisors}{Betreuer/-in}
 
+
 \global\let\@needtable\@empty 
 \global\let\@courseid\@empty 
 \global\let\@course\@empty 
 \global\let\@session\@empty
 \global\let\@term\@empty 
-\global\let\@supervisor\@empty 
+\global\let\@supervisor\@empty
 
 \newcommand{\course}[3]{
 	\def\@needtable{yes}
@@ -50,15 +51,15 @@
 
 \let\old@maketitle\@maketitle 
 \renewcommand*{\@maketitle}{
-%	\newpage\null
+	%	\newpage\null
 	\newpage%
 	\ifx\@uselogo\@empty 
-		\null\vskip2em
+	\null\vskip2em
 	\else 
-		\begin{flushright}
-			\includegraphics[height=16mm]{gfx/ubn-logo-14}
-			\includegraphics[height=16mm]{gfx/mlai-logo}\par 
-		\end{flushright}
+	\begin{flushright}
+		\includegraphics[height=16mm]{gfx/ubn-logo-14}
+		\includegraphics[height=16mm]{gfx/mlai-logo}\par 
+	\end{flushright}
 	\fi 
 	\begin{center}
 		\let\footnote\thanks 
@@ -71,8 +72,8 @@
 		{\large \@date}\par\vskip1.5em
 		\ifx\@needtable\@empty\else 
 		\def\and{ \\ & }
-		\begin{tabular}{|r|p{0.65\linewidth}|}
-			\hline  
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{|l|p{0.65\linewidth}|}\hline 
 			\ifx\@courseid\@empty\else 
 			\GetTranslation{courseid}: & \@courseid \\
 			\hline 
@@ -150,20 +151,20 @@
 
 \RequirePackage{iftex}
 \ifPDFTeX
-	\wlog{PDF LaTeX detected}
-	\RequirePackage[utf8]{inputenc}
-	\RequirePackage[T1]{fontenc}
-	\RequirePackage{textcomp,tgpagella} 
+\wlog{PDF LaTeX detected}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{textcomp,tgpagella} 
 \else 
-	\ifLuaTeX
-		\wlog{LuaLaTeX detected}
-		\RequirePackage{fontspec}
-		\setmainfont[Ligatures=TeX]{TeX Gyre Pagella} 
-	\else 
-		\ifXeTeX
-			\wlog{XeLaTeX detected}
-			\RequirePackage{fontspec}
-			\setmainfont[Ligatures=TeX]{TeX Gyre Pagella} 
-		\fi 
-	\fi 
+\ifLuaTeX
+\wlog{LuaLaTeX detected}
+\RequirePackage{fontspec}
+\setmainfont[Ligatures=TeX]{TeX Gyre Pagella} 
+\else 
+\ifXeTeX
+\wlog{XeLaTeX detected}
+\RequirePackage{fontspec}
+\setmainfont[Ligatures=TeX]{TeX Gyre Pagella} 
+\fi 
+\fi 
 \fi 
