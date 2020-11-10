@@ -51,16 +51,49 @@
 
 \let\old@maketitle\@maketitle 
 \renewcommand*{\@maketitle}{
-	%	\newpage\null
 	\newpage%
-	\ifx\@uselogo\@empty 
-	\null\vskip2em
-	\else 
-	\begin{flushright}
-		\includegraphics[height=16mm]{gfx/ubn-logo-14}
-		\includegraphics[height=16mm]{gfx/mlai-logo}\par 
-	\end{flushright}
-	\fi 
+	\par\noindent 
+	\begin{minipage}[t]{0.59\textwidth}\par\noindent
+		\ifx\@needtable\@empty\null\else
+			\scriptsize
+			\def\and{ \\ & }
+			\renewcommand{\arraystretch}{1.2}
+			\begin{tabular}[t]{|l|p{0.675\textwidth}|}\hline 
+				\ifx\@courseid\@empty\else 
+				\GetTranslation{courseid}: & \@courseid \\
+				\hline 
+				\fi 
+				\ifx\@course\@empty\else 
+				\GetTranslation{course}: & \@course \\
+				\hline 
+				\fi 
+				\ifx\@session\@empty\else 
+				\GetTranslation{session}: & \@session \\
+				\hline 
+				\fi 
+				\ifx\@term\@empty\else 
+				\GetTranslation{term}: & \@term \\
+				\hline 
+				\fi 
+				\ifx\@supervisor\@empty\else 
+				\GetTranslation{supervisors}:  & \@supervisor \\			
+				\hline 
+				\fi 
+			\end{tabular}% 
+		\fi%
+	\end{minipage}	
+	\hfill%
+	\begin{minipage}[t]{0.4\textwidth}%
+		\begin{flushright}%
+			\ifx\@uselogo\@empty 
+				\null\vskip2em
+			\else 
+				\raisebox{-\height}{\includegraphics[height=16mm]{gfx/ubn-logo-14}}%
+				\raisebox{-\height}{\includegraphics[height=16mm]{gfx/mlai-logo}}%
+			\fi
+		\end{flushright}
+	\end{minipage} \vskip2.5em
+	
 	\begin{center}
 		\let\footnote\thanks 
 		{\LARGE \bfseries \@title \par} \vskip1.5em 
@@ -70,32 +103,6 @@
 			\end{tabular}\par%
 		} \vskip1em
 		{\large \@date}\par\vskip1.5em
-		\ifx\@needtable\@empty\else 
-		\def\and{ \\ & }
-		\renewcommand{\arraystretch}{1.3}
-		\begin{tabular}{|l|p{0.65\linewidth}|}\hline 
-			\ifx\@courseid\@empty\else 
-			\GetTranslation{courseid}: & \@courseid \\
-			\hline 
-			\fi 
-			\ifx\@course\@empty\else 
-			\GetTranslation{course}: & \@course \\
-			\hline 
-			\fi 
-			\ifx\@session\@empty\else 
-			\GetTranslation{session}: & \@session \\
-			\hline 
-			\fi 
-			\ifx\@term\@empty\else 
-			\GetTranslation{term}: & \@term \\
-			\hline 
-			\fi 
-			\ifx\@supervisor\@empty\else 
-			\GetTranslation{supervisors}:  & \@supervisor \\			
-			\hline 
-			\fi 
-		\end{tabular}% 
-		\fi 
 	\end{center} \par \vskip1.5em 
 }
 %\let\oldmaketitle\maketitle 
@@ -116,7 +123,7 @@
 
 
 \RequirePackage[fleqn,intlimits]{mathtools}
-\RequirePackage{ntheorem} 
+\RequirePackage[amsmath]{ntheorem} 
 \theoremstyle{break}
 \theorembodyfont{\normalfont}
 \theoremseparator{.}
