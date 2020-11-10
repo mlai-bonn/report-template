@@ -24,9 +24,8 @@
 		You must not change \texttt{mlai-report.cls} and must not fiddle with the page margins or other spacing.
 		The body of this document showcases how to use our document class.
 	\end{abstract}
-	
 
-	\section{Introduction}\marginnote{Fry}
+	\section[Introduction]{Introduction\protect\marginnote{Fry}}
 	
 	\begin{equation}
 	\int_{-\infty}^\infty \mathrm{e}^{-\frac{x^2}{2}} \; \mathrm{d}x 
@@ -34,7 +33,7 @@
 	
 	\enquote{Don't panic} \parencite{adams1979} \blindtext
 	
-	\subsection{Related Work}\marginnote{Rodriguez}
+	\subsection[Related Work]{Related Work\protect\marginnote{Rodriguez}}
 	
 	\section{Preliminaries} 
 
@@ -78,4 +77,22 @@
 	\appendix
 	
 	\section{Known Issues} 
+	
+	This template can be found on GitHub under 
+	\begin{center}
+		\url{https://github.com/mlai-bonn/report-template}
+	\end{center}
+	If you encounter any problem, please create a bug report. Furthermore, here is a list of known issues: 
+	\begin{itemize} 
+		\item \verb|\marginnote{...}| inside sectioning appears in a table of contents. As a work\-around one can use the optional argument of \verb|\section| and \verb|\subsection|. For instance, use 
+		\begin{verbatim}
+			\section[Introduction]{Introduction\protect\marginnote{Fry}}
+		\end{verbatim}
+		instead of 
+		\begin{verbatim}
+			\section{Introduction\protect\marginnote{Fry}}
+		\end{verbatim}
+		However, you should not include a table of contents in a report anyway. 
+	\end{itemize}
+
 \end{document}
