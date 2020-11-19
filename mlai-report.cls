@@ -119,7 +119,7 @@
 %			
 %}
 
-\RequirePackage{xcolor,graphicx,enumitem,booktabs}
+\RequirePackage{xcolor,graphicx,booktabs}
 
 
 \RequirePackage[fleqn,intlimits]{mathtools}
