@@ -25,6 +25,8 @@
 \DeclareTranslation{German}{term}{Semester} 
 \DeclareTranslation{English}{supervisors}{Supervisor(s)} 
 \DeclareTranslation{German}{supervisors}{Betreuer/-in}
+\DeclareTranslation{English}{students}{Students}
+\DeclareTranslation{German}{students}{Studierende}
 
 
 \global\let\@needtable\@empty 
@@ -33,6 +35,7 @@
 \global\let\@session\@empty
 \global\let\@term\@empty 
 \global\let\@supervisor\@empty
+\global\let\@students\@empty
 
 \newcommand{\course}[3]{
 	\def\@needtable{yes}
@@ -47,6 +50,10 @@
 \newcommand{\supervisor}[1]{%
 	\def\@needtable{yes}%
 	\def\@supervisor{#1}%
+}
+\newcommand{\students}[1]{%
+	\def\@needtable{yes}%
+	\def\@students{#1}%
 }
 
 \let\old@maketitle\@maketitle 
@@ -77,6 +84,10 @@
 				\fi 
 				\ifx\@supervisor\@empty\else 
 				\GetTranslation{supervisors}:  & \@supervisor \\			
+				\hline 
+				\fi 
+				\ifx\@students\@empty\else 
+				\GetTranslation{students}:  & \@students \\			
 				\hline 
 				\fi 
 			\end{tabular}% 
